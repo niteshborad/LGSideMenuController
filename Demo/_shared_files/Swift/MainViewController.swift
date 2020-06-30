@@ -40,7 +40,7 @@ class MainViewController: LGSideMenuController {
 
         let greenCoverColor = UIColor(red: 0.0, green: 0.1, blue: 0.0, alpha: 0.3)
         let purpleCoverColor = UIColor(red: 0.1, green: 0.0, blue: 0.1, alpha: 0.3)
-        let regularStyle: UIBlurEffectStyle
+        let regularStyle: UIBlurEffect.Style
 
         if #available(iOS 10.0, *) {
             regularStyle = .regular
@@ -187,7 +187,7 @@ class MainViewController: LGSideMenuController {
         if (!isRightViewStatusBarHidden ||
             (rightViewAlwaysVisibleOptions.contains(.onPadLandscape) &&
                 UI_USER_INTERFACE_IDIOM() == .pad &&
-                UIInterfaceOrientationIsLandscape(UIApplication.shared.statusBarOrientation))) {
+                UIApplication.shared.statusBarOrientation.isLandscape)) {
             rightView?.frame = CGRect(x: 0.0, y: 20.0, width: size.width, height: size.height - 20.0)
         }
     }
@@ -195,7 +195,7 @@ class MainViewController: LGSideMenuController {
     override var isLeftViewStatusBarHidden: Bool {
         get {
             if (type == 8) {
-                return UIInterfaceOrientationIsLandscape(UIApplication.shared.statusBarOrientation) && UI_USER_INTERFACE_IDIOM() == .phone
+                return UIApplication.shared.statusBarOrientation.isLandscape && UI_USER_INTERFACE_IDIOM() == .phone
             }
 
             return super.isLeftViewStatusBarHidden
@@ -209,7 +209,7 @@ class MainViewController: LGSideMenuController {
     override var isRightViewStatusBarHidden: Bool {
         get {
             if (type == 8) {
-                return UIInterfaceOrientationIsLandscape(UIApplication.shared.statusBarOrientation) && UI_USER_INTERFACE_IDIOM() == .phone
+                return UIApplication.shared.statusBarOrientation.isLandscape && UI_USER_INTERFACE_IDIOM() == .phone
             }
 
             return super.isRightViewStatusBarHidden
