@@ -53,15 +53,15 @@ class ViewController : UIViewController {
 
     // MARK: -
 
-    func showLeftView(sender: AnyObject?) {
+    @objc func showLeftView(sender: AnyObject?) {
         sideMenuController?.showLeftView(animated: true, completionHandler: nil)
     }
 
-    func showRightView(sender: AnyObject?) {
+    @objc func showRightView(sender: AnyObject?) {
         sideMenuController?.showRightView(animated: true, completionHandler: nil)
     }
 
-    func showChooseController() {
+    @objc func showChooseController() {
         let navigationController = ChooseNavigationController()
 
         let window = UIApplication.shared.delegate!.window!!

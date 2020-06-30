@@ -24,7 +24,7 @@ class ChooseNavigationController: UINavigationController {
 
         navigationBar.isTranslucent = true
         navigationBar.barTintColor = UIColor(red: 0.0, green: 0.5, blue:1.0, alpha:1.0)
-        navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationBar.tintColor = UIColor(white: 1.0, alpha: 0.5)
     }
 
@@ -33,7 +33,7 @@ class ChooseNavigationController: UINavigationController {
     }
     
     override var prefersStatusBarHidden : Bool {
-        return UIInterfaceOrientationIsLandscape(UIApplication.shared.statusBarOrientation) && UI_USER_INTERFACE_IDIOM() == .phone
+        return UIApplication.shared.statusBarOrientation.isLandscape && UI_USER_INTERFACE_IDIOM() == .phone
     }
     
     override var preferredStatusBarStyle : UIStatusBarStyle {
